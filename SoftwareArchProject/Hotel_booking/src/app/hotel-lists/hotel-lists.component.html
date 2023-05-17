@@ -1,0 +1,63 @@
+<div>
+  <div
+    fxLayout="row wrap"
+    fxLayout.sm="column"
+    fxLayoutAlign="space-around"
+    fxLayoutGap="25px"
+    class="example-card"
+  >
+    <mat-card
+      fxFlex="calc(33%-25px)"
+      fxFlex.sm="calc(50%-25px)"
+      *ngFor="let hotel of hotelList"
+    >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ hotel.hotelName }}</mat-card-title>
+
+        <mat-card-subtitle
+          ><span>Availability: </span
+          >{{ hotel.currentAvailableRooms }}</mat-card-subtitle
+        >
+      </mat-card-header>
+      <img mat-card-image src="{{ hotel.img }}" alt="Photo of a Shiba Inu" />
+      <mat-card-content>
+        <p><span>Hotel Id: </span> {{ hotel.hotelId }}</p>
+        <form [formGroup]="bookRoom" (ngSubmit)="bookroom(hotel)">
+          <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <mat-form-field appearance="fill">
+              <mat-label>Rooms</mat-label>
+              <mat-select formControlName="room">
+                <mat-option *ngFor="let room of roomTypes" [value]="room.value">
+                  {{ room.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Beds</mat-label>
+              <mat-select formControlName="beds">
+                <mat-option *ngFor="let bhk of bhks" [value]="bhk.value">
+                  {{ bhk.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Food</mat-label>
+              <mat-select formControlName="food">
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{ food.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-card-actions>
+            <button mat-raised-button type="submit" color="primary">
+              Book
+            </button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

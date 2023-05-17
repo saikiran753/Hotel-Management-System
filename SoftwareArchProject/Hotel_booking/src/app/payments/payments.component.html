@@ -1,0 +1,42 @@
+
+
+<mat-card class="example-card">
+	<mat-card-header>
+    <mat-icon>more_vert</mat-icon>
+		<div mat-card-avatar class="example-header-image"></div>
+		<mat-card-title>Payment</mat-card-title>
+		<mat-card-subtitle>Your Booking information as follows</mat-card-subtitle>
+	</mat-card-header>
+    <mat-card-content>
+        <h1>{{bookingDetails.hotelName}}</h1>
+        <h2>
+            {{bookingDetails.roomType}}
+        </h2>
+        <h2>
+            {{bookingDetails.food}}
+        </h2>
+        <h2>
+            {{bookingDetails.view}}
+        </h2>
+
+        <h1 class = "amount">{{bookingDetails.amount}}</h1>
+        <div *ngIf = "!radioGroup">
+        <form [formGroup]="paymentMethod" (ngSubmit)="pay()">
+        <mat-radio-group formcontrolname="paymentType" (change)="onChange($event)"aria-label="Select an option">
+            <mat-radio-button  value="payPal">PayPal</mat-radio-button>
+            <mat-radio-button  value="credit_Card">Credit Card</mat-radio-button>
+          </mat-radio-group>
+        
+        <mat-card-actions>
+            <button [disabled] ="isDisabled" mat-raised-button type="submit" color="primary">
+                Pay now
+              </button>
+        </mat-card-actions></form></div>
+
+        <div   *ngIf = "radioGroup" class = "amount">
+            <h1 >Payment Success</h1>
+        </div>
+
+
+    </mat-card-content>
+</mat-card>

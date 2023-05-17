@@ -1,0 +1,34 @@
+
+ <form [formGroup]="payment" (ngSubmit)="conform()">
+    <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Card Holder Name</mat-label>
+          <input formControlName="cardHolderName" matInput />
+        </mat-form-field>
+      </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>CardNumber</mat-label>
+        <input formControlName="cardNumber" matInput />
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Expire date</mat-label>
+          <input placeholder="mm/yyyy" formControlName="expireDate" matInput />
+        </mat-form-field>
+      </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>CVV</mat-label>
+        <input type="password" formControlName="cvv" matInput />
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field  class="example-full-width">
+          <mat-label>amount</mat-label>
+          <input formControlName="amount" matInput readonly />
+        </mat-form-field>
+      </div>
+    <button  mat-raised-button type="submit" color="primary">Login</button>
+  </form>

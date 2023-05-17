@@ -1,0 +1,60 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      (click)="sideNavOpen()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Comfort.Inn</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      (click)="loginDialog()"
+    >
+      SignUp
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav mode="push" [(opened)]="sideNav">side </mat-sidenav>
+  <mat-sidenav-content>
+    <!--Main Start-->
+    <div class="main">
+      <!--Navbar Start-->
+     
+      <!--Navbar End-->
+      <div class="lefttext">
+        <div class="textwrap">
+          <h1>Get inspiration for your next trip</h1>
+          <p  style="padding-top: 20px">
+            Available until Jan 3, 2023 </p>
+            <p  style="padding-top: 20px">Save 15% with Late Escape Deals</p>  
+            <p  style="padding-top: 20px">There’s
+              still time to check one more destination off your wishlist</p>
+          
+          <button>Book Now</button>
+        </div>
+      </div>
+      <div class="rightimage">
+        <img
+          src="https://eduguide.co.in/wp-content/uploads/2021/07/hotel-management.jpg"
+        />
+      </div>
+    </div>
+  
+
+    <div>
+      <mat-form-field appearance="outline" class="test-class">
+        <mat-icon matPrefix>search</mat-icon>
+        <input type="Search" matInput placeholder="Where to?" />
+      </mat-form-field>
+    </div>
+    <a [routerLink]="['/register']"> haveing an account? </a>
+  </mat-sidenav-content>
+</mat-sidenav-container>

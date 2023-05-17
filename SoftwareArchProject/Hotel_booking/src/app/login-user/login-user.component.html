@@ -1,0 +1,18 @@
+<div>
+  <h1  style="text-align: left"class = "Title">Login </h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>UserName</mat-label>
+          <input formControlName="email" matInput />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Pass word</mat-label>
+          <input type="password" formControlName="password" matInput />
+        </mat-form-field>
+      </div>
+      <button mat-raised-button type="submit" color="primary">Login</button>
+    </form>
+  </div>

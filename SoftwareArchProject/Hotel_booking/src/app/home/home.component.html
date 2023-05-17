@@ -1,0 +1,74 @@
+<p>
+  <mat-toolbar color="primary">
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+      (click)="sideNavOpen()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Comfort.Inn</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav mode="push" [(opened)]="sideNav">
+    <mat-list-item> Home </mat-list-item>
+    <mat-list-item> My Bookings </mat-list-item>
+    <mat-list-item> My Account </mat-list-item>
+    <mat-list-item> Home </mat-list-item>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <form  [formGroup]="searchRoom" (ngSubmit)="search()">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div  style="margin: 15px;">
+            <mat-form-field appearance="outline" class="test-class">
+              <mat-icon matPrefix>search</mat-icon>
+              <input formControlName="location" type="Search" matInput placeholder="Where to?" />
+            </mat-form-field>
+          </div>
+          <div style="margin: 15px;">
+          <mat-form-field appearance="outline" class="test-class">
+            <mat-label>From</mat-label>
+            <input formControlName="fromDate" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field></div>
+          <div style="margin: 15px;">
+          <mat-form-field appearance="outline" class="test-class">
+            <mat-label>To</mat-label>
+            <input formControlName="toDate" matInput [matDatepicker]="picker2">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field></div>
+          
+          <button  style="margin-bottom: 15px;" mat-raised-button type="submit" color="primary">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <app-hotel-lists
+      *ngIf="hotelList.length != 0"
+      [hotelList]="hotelList"
+    ></app-hotel-lists>
+  </mat-sidenav-content>
+</mat-sidenav-container>
